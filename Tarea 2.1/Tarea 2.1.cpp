@@ -15,7 +15,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 using namespace std;
-
+#include "Tarea 2.1.h"
 int main()
 {
     float* ptr = nullptr;
