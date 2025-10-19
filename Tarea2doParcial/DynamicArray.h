@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#define COUNT_DYNAMIC_ARRAY_COPIES 1
 using namespace std;
 
 /// <summary>
@@ -39,6 +40,10 @@ public:
 			for (int i = 0; i < oldCapacity; i++)
 			{
 				arrayConMasMemoria[i] = elements[i];
+				/*TAREA 3.1 AUMENTAR SU VALOR*/
+#if COUNT_DYNAMIC_ARRAY_COPIES//aqui tambien
+				copyCounter++;//aumentamos el contador
+#endif
 			}
 			delete[] elements;
 
@@ -79,6 +84,10 @@ public:
 					for (int i = 0; i < oldCapacity; i++)
 					{
 						arrayConMasMemoria[i] = elements[i];
+						/*TAREA 3.1 AUMENTAR SU VALOR*/
+#if COUNT_DYNAMIC_ARRAY_COPIES//aqui tambien
+						copyCounter++;//aumentamos el contador
+#endif
 					}
 					delete[] elements;
 
@@ -199,6 +208,12 @@ private:
 	// 1) Pedir memoria para el nuevo arreglo más grande.
 	// 2) copiar los elementos del viejo arreglo al nuevo arreglo.
 	// 3) borrar el viejo arreglo.
+
+
+	/*TAREA 3.1//////////////DECLARAR LA VARIABLE copyCounter//////////////////*/
+#if COUNT_DYNAMIC_ARRAY_COPIES/*Segun yo esto es para que se pueda acceder por que es privada*/
+	int copyCounter;//inicializamos la variable
+#endif
 
 };
 
