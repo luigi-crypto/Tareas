@@ -31,7 +31,9 @@ public:
 		// y si va a empezar vacía, no necesitamos pedir memoria para el primer elemento.
 		first = nullptr; // como no se va a usar ahorita todavía, lo ponemos como nullptr.
 	}
-
+	void push_front(const T& data);
+	void pop_front();
+	void print();
 	// nada más por el estándar de cómo se llama la función en las listas ligadas.
 	void PushBack(const T value)
 	{
@@ -120,7 +122,7 @@ public:
 		if (nodoActual->data == valorDelNodoABorrar)
 		{
 			// es un caso especial porque hay que reasignar al first.
-			
+
 			first = nodoActual->next;
 			delete nodoActual;
 			if (count == 1)
@@ -135,9 +137,9 @@ public:
 			if (nodoActual->next->data == valorDelNodoABorrar)
 			{
 				// sí lo encontramos, entonces lo borramos.
-				Node *nodoABorrar = nodoActual->next;
+				Node* nodoABorrar = nodoActual->next;
 				// el nodo actual apunta al que sigue del que sigue
-				
+
 				nodoActual->next = nodoActual->next->next;
 
 				// y ahora sí borramos a ese nodo auxiliar.
@@ -161,7 +163,7 @@ public:
 	// regresa el valor almacenado en el nodo del inicio de la lista ligada
 	T Front()
 	{
-		if(first != nullptr)
+		if (first != nullptr)
 			return first->data;
 
 		// si sí es nulo, entonces le imprimes un error al usuario: 
@@ -212,11 +214,37 @@ public:
 
 	/* LAS DE TAREA */
 	//  https://cplusplus.com/reference/.
-	// PushFront()
+	 void PushFront(const T& data)
+	{
+		 Node* nuevoNodo = new Node(data);
+		 nuevoNodo->next = first;
+		 first = nuevoNodo;
+		 count++;
+	}
 
-	// PopFront()
+	 void PopFront()
+	{
+		if (first == nullptr)
+		{
+			return;
+		}
 
-	// Print()
+	Node* nodoeliminar = first;
+	first = first->next;
+	delete nodoeliminar;
+	count--;
+	}
+
+	 void Print()
+	{
+		Node* nodoActual = first;
+		while (nodoActual != nullptr)
+		{
+			cout << nodoActual->data << " ";
+			nodoActual = nodoActual->next;
+		}
+		cout << endl;
+	}
 
 	// Encontrar dónde nos falta liberar memoria en esta clase. Si sí hace falta impleméntenlo, 
 	// si no hace falta, expliquen por qué.

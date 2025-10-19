@@ -12,6 +12,10 @@ DynamicArray::DynamicArray(int in_capacity)
 		elements = nullptr; // si es 0, no pierdes tiempo pidiendo memoria dinámica que puede que no se use.
 
 	count = 0; // le decimos que ahorita no tiene nada dentro, por lo tanto es 0.
+	//TAREA 3.1 RESET COPY COUNTER!!!!!!!!!!/
+#if COUNT_DYNAMIC_ARRAY_COPIES//aqui reseteamos el contador
+	copyCounter++;
+#endif
 }
 
 DynamicArray::~DynamicArray()
