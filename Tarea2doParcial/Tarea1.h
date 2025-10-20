@@ -67,7 +67,19 @@ public:
 
 	void shrink_to_fit()
 	{
+		if (capacidad > count)  // solo si hay espacio de sobra
+		{
+			capacidad = count;                // la capacidad ahora será igual al número de elementos
+			Ti* nuevo = new Ti[capacidad];    // reservamos un nuevo bloque de memoria exacto
 
+			for (int i = 0; i < count; i++)   // copiamos los datos
+			{
+				nuevo[i] = elementos[i];
+			}
+
+			delete[] elementos;   // liberamos la memoria vieja
+			elementos = nuevo;    // apuntamos al nuevo bloque
+		}
 	}
 	int i() { return count; }
 };

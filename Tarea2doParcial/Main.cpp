@@ -31,6 +31,11 @@ void mainTarea0()
 	 cout<<"El tamaño de la array es de: "<<arr.i(); // imprime 2
  };
 
+ void mainTarea2()
+ {
+	 DemostracionLinkedList();
+ }
+
 int main()
 {
 	//TAREA 0 =====================/===================//
@@ -38,6 +43,9 @@ int main()
 	cout << endl;
 	//TAREA 1 =====================/===================//
 	mainTarea1();
+	cout << endl;
+	//Tarea 2========================/================//
+	mainTarea2();
 }
 
 
