@@ -44,6 +44,9 @@ void DemostracionLinkedList()
 	myLinkedList.Back();
 
 	/* PRUEBAS DE FUNCIONES QUE HICIERON PARA SU TAREA */
+	void PushFront();
+	void PopFront();
+	void Print();
 	myLinkedList.PushFront("Primero");
 	myLinkedList.PushFront("Segundo");
 	myLinkedList.PushBack("Último");

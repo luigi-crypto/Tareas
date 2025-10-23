@@ -32,9 +32,6 @@
     <ClInclude Include="LinkedList.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Tarea1.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\Downloads\DynamicArray.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>

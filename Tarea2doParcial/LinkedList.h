@@ -31,9 +31,6 @@ public:
 		// y si va a empezar vacía, no necesitamos pedir memoria para el primer elemento.
 		first = nullptr; // como no se va a usar ahorita todavía, lo ponemos como nullptr.
 	}
-	void push_front(const T& data);
-	void pop_front();
-	void print();
 	// nada más por el estándar de cómo se llama la función en las listas ligadas.
 	void PushBack(const T value)
 	{
@@ -210,6 +207,20 @@ public:
 		}
 		// ya llegaste al i-ésimo que te pidieron, y retornas su valor
 		return nodoActual->data;
+	}
+
+	~LinkedList()
+	{
+		Node* current = first;
+		Node* nextNode = nullptr;
+		while (current != nullptr)
+		{
+			nextNode = current->next; // 1. Guardar el puntero al siguiente nodo.
+			delete current;          // 2. Liberar la memoria del nodo actual.
+			current = nextNode;      // 3. Mover al siguiente nodo.
+		}
+		first = nullptr;
+		count = 0;
 	}
 
 	/* LAS DE TAREA */
