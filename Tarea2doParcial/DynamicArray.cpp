@@ -1,4 +1,4 @@
-#include "DynamicArray.h"
+ï»¿#include "DynamicArray.h"
 
 
 DynamicArray::DynamicArray(int in_capacity)
@@ -9,7 +9,7 @@ DynamicArray::DynamicArray(int in_capacity)
 	if (capacity > 0)
 		elements = new int[capacity];
 	else
-		elements = nullptr; // si es 0, no pierdes tiempo pidiendo memoria dinámica que puede que no se use.
+		elements = nullptr; // si es 0, no pierdes tiempo pidiendo memoria dinï¿½mica que puede que no se use.
 
 	count = 0; // le decimos que ahorita no tiene nada dentro, por lo tanto es 0.
 	//TAREA 3.1 RESET COPY COUNTER!!!!!!!!!!/
@@ -20,14 +20,14 @@ DynamicArray::DynamicArray(int in_capacity)
 
 DynamicArray::~DynamicArray()
 {
-	// si sí se pidió memoria dinámica, entonces sí necesitamos hacer este delete.
-	if(capacity > 0)
-		// IMPORTANTE usar los '[]' cuando se hace delete de un arreglo de memoria dinámica.
-		delete [] elements;
+	// si sï¿½ se pidiï¿½ memoria dinï¿½mica, entonces sï¿½ necesitamos hacer este delete.
+	if (capacity > 0)
+		// IMPORTANTE usar los '[]' cuando se hace delete de un arreglo de memoria dinï¿½mica.
+		delete[] elements;
 }
 
-// como estamos pidiendo memoria dinámica, hay que recordar liberar memoria dinámica cuando ya no 
-// sea necesaria. (Cuando se le hace delete a este objeto, o cuando sale del scope (las {}) donde se declaró)
+// como estamos pidiendo memoria dinï¿½mica, hay que recordar liberar memoria dinï¿½mica cuando ya no 
+// sea necesaria. (Cuando se le hace delete a este objeto, o cuando sale del scope (las {}) donde se declarï¿½)
 
 
 
@@ -43,19 +43,30 @@ void DemostracionDynamicArray()
 	myDArray.Append(7);
 	myDArray.Append(8);
 	myDArray.Append(9);
-	// aquí ya se necesitaría otra vez el resize, porque se acaban los espacios disponibles,
-	// y ahora tendríamos un array de 10*2 espacios, de los cuales tenemos ocupados 11.
+	// aquï¿½ ya se necesitarï¿½a otra vez el resize, porque se acaban los espacios disponibles,
+	// y ahora tendrï¿½amos un array de 10*2 espacios, de los cuales tenemos ocupados 11.
 	myDArray.Append(10);
 	myDArray.Print();
 
 
-	cout << "imprimiendo el array dinámico" << endl;
+	cout << "imprimiendo el array dinï¿½mico" << endl;
 	for (int i = 0; i < myDArray.GetCount(); i++)
 	{
 		cout << myDArray.ObtenerElemento(i) << endl;
 	}
 
 
-	/* PRUEBAS DE LAS FUNCIONES QUE USTEDES HARÁN PARA LA TAREA */
-
+	/* PRUEBAS DE LAS FUNCIONES QUE USTEDES HARï¿½N PARA LA TAREA */
+	MiDinamicArray<int> arr(2);/*Aqui solo declaramos un arreglo de dos de capacidad*/
+	arr.push_back(10);/*Aqui agregamos uno*/
+	arr.push_back(20);/*AquÃ­ el segundo*/
+	arr.push_back(30);/*Aqui ya son 3 ya no cabe pero como hicimos todo lo que se vio en el .h se redimencionara para que quepan 3*/
+	cout << arr[0];// imprime 10
+	cout << endl;// salto de linea
+	cout << arr[1];// imprime 20
+	cout << endl;
+	cout << arr[2];    // imprime 30
+	cout << endl;
+	arr.pop_back();// quita el Ãºltimo elemento (30)
+	cout << "El tamaÃ±o de la array es de: " << arr.i(); // imprime 2
 }

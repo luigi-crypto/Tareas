@@ -1,12 +1,12 @@
-ï»¿#pragma once
+#pragma once
 
 #include <iostream>
 #define COUNT_DYNAMIC_ARRAY_COPIES 1
 using namespace std;
 
 /// <summary>
-/// Un array que incrementa su tamaï¿½o automï¿½ticamente cuando se intenta insertar un elemento en ï¿½l,
-/// pero ya estï¿½ lleno.
+/// Un array que incrementa su tamaño automáticamente cuando se intenta insertar un elemento en él,
+/// pero ya está lleno.
 /// </summary>
 class DynamicArray
 {
@@ -17,9 +17,9 @@ public:
 
 	~DynamicArray();
 
-	//Append(x) aï¿½adir el valor x en la posiciï¿½n ï¿½ltima que se ha ocupado del array.
-	// si ya estï¿½ lleno el arreglo, manda a incrementar su tamaï¿½o automï¿½ticamente.
-	void Append(const int value)
+	//Append(x) añadir el valor x en la posición última que se ha ocupado del array.
+	// si ya está lleno el arreglo, manda a incrementar su tamaño automáticamente.
+	void Append(const int value) 
 	{
 		if (count == capacity)
 		{
@@ -30,13 +30,13 @@ public:
 				capacity *= 2;
 			else
 			{
-				cout << "ERROR: se excediï¿½ el tamaï¿½o mï¿½ximo del dynamic array" << endl;
+				cout << "ERROR: se excedió el tamaño máximo del dynamic array" << endl;
 				return;
 			}
-			// capacity = capacity == 0 ? 1 : capacity * 2; // este serï¿½a el if de una lï¿½nea que equivale al if-else de arriba
-
-			// entonces estï¿½ lleno y hay que pedir mï¿½s memoria, copiar el arreglo actual al nuevo, y borrar el viejo.
-			int* arrayConMasMemoria = new int[capacity]; // trae el doble de memoria
+			// capacity = capacity == 0 ? 1 : capacity * 2; // este sería el if de una línea que equivale al if-else de arriba
+			
+			// entonces está lleno y hay que pedir más memoria, copiar el arreglo actual al nuevo, y borrar el viejo.
+			int *arrayConMasMemoria = new int[capacity]; // trae el doble de memoria
 			for (int i = 0; i < oldCapacity; i++)
 			{
 				arrayConMasMemoria[i] = elements[i];
@@ -47,24 +47,24 @@ public:
 			}
 			delete[] elements;
 
-			// reasignamos nuestra variable interna de elements, a que apunte a la direcciï¿½n del arreglo nuevo con mï¿½s memoria.
+			// reasignamos nuestra variable interna de elements, a que apunte a la dirección del arreglo nuevo con más memoria.
 			elements = arrayConMasMemoria;
 
-			// En otras palabras, mandar a llamar la funciï¿½n Resize()
+			// En otras palabras, mandar a llamar la función Resize()
 		}
 		elements[count] = value;
-		count++; // y ahora tiene dentro 1 elementos mï¿½s.
+		count++; // y ahora tiene dentro 1 elementos más.
 	}
 
 	bool InsertarDespuesDeValor(int valorAEncontrar, int valorAInsertar)
 	{
-		// un for para buscar el ï¿½ndice del valor a encontrar
+		// un for para buscar el índice del valor a encontrar
 		for (int i = 0; i < count; i++)
 		{
 			if (valorAEncontrar == elements[i])
 			{
-				// ademï¿½s, tenemos que checar si se necesita hacer el resize. 
-				// si sï¿½ se necesita pues lo haces.
+				// además, tenemos que checar si se necesita hacer el resize. 
+				// si sí se necesita pues lo haces.
 				if (count == capacity)
 				{
 					int oldCapacity = capacity;
@@ -74,12 +74,12 @@ public:
 						capacity *= 2;
 					else
 					{
-						cout << "ERROR: se excediï¿½ el tamaï¿½o mï¿½ximo del dynamic array" << endl;
+						cout << "ERROR: se excedió el tamaño máximo del dynamic array" << endl;
 						return false;
 					}
-					// capacity = capacity == 0 ? 1 : capacity * 2; // este serï¿½a el if de una lï¿½nea que equivale al if-else de arriba
+					// capacity = capacity == 0 ? 1 : capacity * 2; // este sería el if de una línea que equivale al if-else de arriba
 
-					// entonces estï¿½ lleno y hay que pedir mï¿½s memoria, copiar el arreglo actual al nuevo, y borrar el viejo.
+					// entonces está lleno y hay que pedir más memoria, copiar el arreglo actual al nuevo, y borrar el viejo.
 					int* arrayConMasMemoria = new int[capacity]; // trae el doble de memoria
 					for (int i = 0; i < oldCapacity; i++)
 					{
@@ -91,20 +91,20 @@ public:
 					}
 					delete[] elements;
 
-					// reasignamos nuestra variable interna de elements, a que apunte a la direcciï¿½n del arreglo nuevo con mï¿½s memoria.
+					// reasignamos nuestra variable interna de elements, a que apunte a la dirección del arreglo nuevo con más memoria.
 					elements = arrayConMasMemoria;
 
-					// En otras palabras, mandar a llamar la funciï¿½n Resize()
+					// En otras palabras, mandar a llamar la función Resize()
 				}
 
 				// entonces ya lo encontramos y hay que poner que i+1 es igual a valorAInsertar
 				// pero para no perder los valores que ya estaban hay que recorrer todos los 
-				// demï¿½s elementos una posiciï¿½n a la derecha, empezando desde el final
+				// demás elementos una posición a la derecha, empezando desde el final
 				for (int j = count; j > i; j--)
 				{
 					elements[j] = elements[j - 1];
 				}
-				// finalmente ponemos el valor a insertar en la posiciï¿½n i+1
+				// finalmente ponemos el valor a insertar en la posición i+1
 				elements[i + 1] = valorAInsertar;
 				count++;
 				return true;
@@ -113,7 +113,7 @@ public:
 		return false;
 	}
 
-	// Insertar 0, despuï¿½s de 1
+	// Insertar 0, después de 1
 	// [1, 2, 3, 4, 5, X, X, X]
 	// [1, 0, 2, 3, 4, 5, X, X]
 
@@ -122,24 +122,24 @@ public:
 		if (indice < capacity)
 			return elements[indice];
 		else
-			cout << "ERROR, se intentï¿½ obtener un valor en una posiciï¿½n invï¿½lida de este array. Posiciï¿½n: "
+			cout << "ERROR, se intentó obtener un valor en una posición inválida de este array. Posición: "
 			<< indice << endl;
 		return -INFINITY;
 	}
 
-	//unsigned variable sin signo (no puede ser negativo jamï¿½s)
-	// size_t es un unsigned long long, es decir, un nï¿½mero de 64 bits (enorme) que no puede ser negativo
-	// si usamos size_t para ï¿½ndices de arrays, no nos tenemos que preocupar por que sean valores negativos.
+	//unsigned variable sin signo (no puede ser negativo jamás)
+	// size_t es un unsigned long long, es decir, un número de 64 bits (enorme) que no puede ser negativo
+	// si usamos size_t para índices de arrays, no nos tenemos que preocupar por que sean valores negativos.
 	void AsignarElemento(const size_t indice, const int valor)
 	{
 		if (indice < capacity)
 			elements[indice] = valor;
 		else
-			cout << "ERROR, se intentï¿½ escribir un valor en una posiciï¿½n invï¿½lida de este array. Posiciï¿½n: "
+			cout << "ERROR, se intentó escribir un valor en una posición inválida de este array. Posición: "
 			<< indice << endl;
 	}
 
-	// te regresa el ï¿½ndice de la posiciï¿½n en el array donde hay un elemento con valor == value
+	// te regresa el índice de la posición en el array donde hay un elemento con valor == value
 	int BuscarElemento(const int valor) const
 	{
 		for (int i = 0; i < count; i++)
@@ -153,16 +153,16 @@ public:
 
 	int QuitarUltimoElemento()
 	{
-		// si sï¿½ hay al menos un elemento, entonces sï¿½ lo podemos sacar.
+		// si sí hay al menos un elemento, entonces sílo podemos sacar.
 		if (count > 0)
 		{
-			count--; // nos basta hacer esto para que ese ï¿½ltimo elemento ya no se pueda acceder.
+			count--; // nos basta hacer esto para que ese último elemento ya no se pueda acceder.
 			return elements[count];
 		}
 
-		// no se necesita el else porque si entrï¿½ al if de arriba entonces ya va a hacer return y no
-		// llegarï¿½a a esta parte del cï¿½digo.
-		cout << "ERROR el dynamic array estaba vacï¿½o pero se intentï¿½ sacar un elemento de ï¿½l." << endl;
+		// no se necesita el else porque si entró al if de arriba entonces ya va a hacer return y no
+		// llegaría a esta parte del código.
+		cout << "ERROR el dynamic array estaba vacío pero se intentó sacar un elemento de él." << endl;
 		return -INFINITY;
 	}
 
@@ -174,38 +174,38 @@ public:
 
 	void Print() const
 	{
-		cout << "imprimiendo Array: " << endl;  // aporta 1 lï¿½nea ejecutada
-		for (int i = 0; i < count; i++)			// aporta count lï¿½neas ejecutadas (porque i va desde 0 hasta count)
-			cout << elements[i] << ", ";		// aporta count lï¿½neas ejecutadas porque estï¿½ dentro del for que va de 0 hasta count
-		cout << endl;							// aporta 1 lï¿½nea ejecutada
+		cout << "imprimiendo Array: " << endl;  // aporta 1 línea ejecutada
+		for (int i = 0; i < count; i++)			// aporta count líneas ejecutadas (porque i va desde 0 hasta count)
+			cout << elements[i] << ", ";		// aporta count líneas ejecutadas porque está dentro del for que va de 0 hasta count
+		cout << endl;							// aporta 1 línea ejecutada
 		// 1 + count + count + 1 = 2 + count*2
 		// count = 10 -> 2 + count*2 = 2 + (10)*2 == 22
 		// count = 1000 -> 2 + count*2 = 2 + (1000)*2 == 2002
-		// La complejidad en tiempo de esta funciï¿½n estï¿½ dictada por la cantidad de elementos en count.
-		// por cada elemento en count que haya, se ejecuta x-lï¿½neas mï¿½s, donde x son la cantidad de lï¿½neas dentro del for.
+		// La complejidad en tiempo de esta función está dictada por la cantidad de elementos en count.
+		// por cada elemento en count que haya, se ejecuta x-líneas más, donde x son la cantidad de líneas dentro del for.
 	}
 
-	// si yo tengo count = 10, se ejecutan en total 22 lï¿½neas de cï¿½digo en Print.
-	// ï¿½si count fuera 1000, cuï¿½ntas lï¿½neas se ejecutarï¿½an?
+	// si yo tengo count = 10, se ejecutan en total 22 líneas de código en Print.
+	// ¿si count fuera 1000, cuántas líneas se ejecutarían?
 
 private:
 	// IMPORTANTE: las propiedades de elements, count, y capacity son privadas FORZOSAMENTE, por seguridad.
 
-	// ï¿½Dï¿½nde almacenamos esos N elementos? D: 
-	// No lo podemos guardar en una variable de tipo primitivo, float, int, char, etc. ahï¿½ solo cabe un valor.
-	// No lo podemos guardar en un array[10] porque esa cosa tiene ï¿½nicamente y para siempre 10 elementos. Es un array de tamaï¿½o estï¿½tico.
-	// Usamos memoria dinï¿½mica para almacenar esos elementos. Porque es un array de tamaï¿½o dinï¿½mico.
+	// ¿Dónde almacenamos esos N elementos? D: 
+	// No lo podemos guardar en una variable de tipo primitivo, float, int, char, etc. ahí solo cabe un valor.
+	// No lo podemos guardar en un array[10] porque esa cosa tiene únicamente y para siempre 10 elementos. Es un array de tamaño estático.
+	// Usamos memoria dinámica para almacenar esos elementos. Porque es un array de tamaño dinámico.
 	int* elements;
 
-	// Count, es una propiedad que nos dice cuï¿½ntos elementos hay dentro del array.
+	// Count, es una propiedad que nos dice cuántos elementos hay dentro del array.
 	int count;
 
-	// Capacity, quï¿½ tamaï¿½o tiene realmente el array (tanto usado como vacï¿½o).
+	// Capacity, qué tamaño tiene realmente el array (tanto usado como vacío).
 	int capacity;
 
-	// Resize(X), es el que se encarga de cambiar el tamaï¿½o dinï¿½micamente.
+	// Resize(X), es el que se encarga de cambiar el tamaño dinámicamente.
 	// esto involucra el proceso de:
-	// 1) Pedir memoria para el nuevo arreglo mï¿½s grande.
+	// 1) Pedir memoria para el nuevo arreglo más grande.
 	// 2) copiar los elementos del viejo arreglo al nuevo arreglo.
 	// 3) borrar el viejo arreglo.
 
@@ -216,91 +216,57 @@ private:
 #endif
 
 };
-
-template<typename Ti>
-class MiDinamicArray
-{
+// Clase plantilla para un array dinámico genérico similar a DynamicArray pero soporta cualquier tipo T
+template <typename T>
+class MiDinamicArray {
 private:
-	Ti* elementos;
-	int capacidad;
-	int count;
+    T* elements;
+    int count;
+    int capacity;
+
 public:
-	static const int maxCapacity = 1024;
+    MiDinamicArray(int in_capacity = 0) : count(0), capacity(in_capacity) {
+        if (capacity > 0)
+            elements = new T[capacity];
+        else
+            elements = nullptr;
+    }
 
-	MiDinamicArray(int lol = 0)
-		: elementos(nullptr), capacidad(lol), count(0)
-	{
-		if (capacidad > 0)
-			elementos = new Ti[capacidad];
-	}
+    ~MiDinamicArray() {
+        if (elements)
+            delete[] elements;
+    }
 
-	~MiDinamicArray()
-	{
-		delete[] elementos;
-	}
+    void push_back(const T& value) {
+        if (count == capacity) {
+            int oldCapacity = capacity;
+            capacity = (capacity == 0) ? 1 : capacity * 2;
+            T* newElements = new T[capacity];
+            for (int i = 0; i < oldCapacity; i++)
+                newElements[i] = elements[i];
+            delete[] elements;
+            elements = newElements;
+        }
+        elements[count++] = value;
+    }
 
-	// devolver elemento por referencia para poder leer/escribir
-	Ti& operator[](int i)
-	{
-		return elementos[i];
-	}
+    void pop_back() {
+        if (count > 0)
+            count--;
+    }
 
-	void push_back(Ti v)
-	{
-		if (count == capacidad)
-		{
-			int capacidadant = capacidad;
-			if (capacidad == 0)
-				capacidad = 1;
-			else if (capacidad * 2 < maxCapacity)
-				capacidad *= 2;
-			else
-			{
-				cout << "ERROR: se excediÃ³ el tamaÃ±o mÃ¡ximo del dynamic array" << endl;
-				return;
-			}
-			Ti* arrayConMasMemoria = new Ti[capacidad];
-			for (int i = 0; i < capacidadant; i++)
-			{
-				arrayConMasMemoria[i] = elementos[i];
-			}
-			delete[] elementos;
-			elementos = arrayConMasMemoria;
-		}
-		elementos[count] = v;
-		count++;
-	}
+    int i() const { // Devuelve el tamaño actual
+        return count;
+    }
 
-	void pop_back()
-	{
-		if (count > 0)
-			count--;
-		else
-			cout << "ERROR: el array estÃ¡ vacÃ­o, no se puede quitar mÃ¡s elementos" << endl;
-	}
+    T& operator[](int idx) {
+        return elements[idx];
+    }
 
-	void shrink_to_fit()
-	{
-		if (capacidad > count)
-		{
-			int newCap = (count == 0) ? 0 : count;
-			if (newCap == 0)
-			{
-				delete[] elementos;
-				elementos = nullptr;
-				capacidad = 0;
-				return;
-			}
-			Ti* nuevo = new Ti[newCap];
-			for (int i = 0; i < count; i++)
-				nuevo[i] = elementos[i];
-			delete[] elementos;
-			elementos = nuevo;
-			capacidad = newCap;
-		}
-	}
-
-	int i() const { return count; }
+    const T& operator[](int idx) const {
+        return elements[idx];
+    }
 
 	void DemostracionDynamicArray();
+
 };
