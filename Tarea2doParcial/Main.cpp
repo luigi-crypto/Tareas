@@ -16,7 +16,7 @@ void mainTarea0()
 
 void mainTarea1()
 {
-	DemostracionDynamicArray();
+	void DemostracionDynamicArray();
 };
 
  void mainTarea2()
