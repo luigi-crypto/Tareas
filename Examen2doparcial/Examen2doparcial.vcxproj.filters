@@ -24,12 +24,24 @@
     <ClCompile Include="LQueue.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="LStack.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Herencia.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SentinelLinkedList.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="LQueue.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="LStack.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Herencia.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

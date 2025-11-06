@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="Examen2doparcial/Examen2doparcial.vcxproj" />
+  <Project Path="Examen2doparcial/Examen2doparcial.vcxproj" Id="61a8182d-adca-4568-89c7-7d0c40fe5afe" />
 </Solution>

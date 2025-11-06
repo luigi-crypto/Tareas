@@ -128,11 +128,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Examen2doparcial.cpp" />
+    <ClCompile Include="Herencia.cpp" />
     <ClCompile Include="LQueue.cpp" />
+    <ClCompile Include="LStack.cpp" />
     <ClCompile Include="SentinelLinkedList.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Herencia.h" />
     <ClInclude Include="LQueue.h" />
+    <ClInclude Include="LStack.h" />
     <ClInclude Include="SentinelLinkedList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

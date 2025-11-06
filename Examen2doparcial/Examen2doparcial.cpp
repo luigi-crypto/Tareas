@@ -1,6 +1,8 @@
 #include <iostream>
 #include "SentinelLinkedList.h"
 #include "LQueue.h"
+#include "LStack.h"
+#include "Herencia.h"
 using namespace std;
 
 void main1()
@@ -13,11 +15,25 @@ void main2()
 	DemostraciondeLQueue();
 }
 
+void main3()
+{
+    PrubeaLStack();
+}
+
+void main4()
+{
+    PruebaHerencia();
+}
+
 int main()
 {
     main1();
     cout << endl;
     main2();
+	cout << endl;
+    main3();
+	cout << endl;
+    main4();
 }
 
 // Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
