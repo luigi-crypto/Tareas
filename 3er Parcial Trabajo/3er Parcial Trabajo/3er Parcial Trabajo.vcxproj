@@ -128,8 +128,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="3er Parcial Trabajo.cpp" />
+    <ClCompile Include="C:\Users\luna1\Downloads\BinarySearchTree.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="C:\Users\luna1\Downloads\BinarySearchTree.h" />
     <ClInclude Include="Hashtable_presentacion.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
