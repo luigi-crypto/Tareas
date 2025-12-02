@@ -129,10 +129,16 @@
   <ItemGroup>
     <ClCompile Include="3er Parcial Trabajo.cpp" />
     <ClCompile Include="C:\Users\luna1\Downloads\BinarySearchTree.cpp" />
+    <ClCompile Include="HashSet.cpp" />
+    <ClCompile Include="HashTableChaining.cpp" />
+    <ClCompile Include="LinkedList.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\Users\luna1\Downloads\BinarySearchTree.h" />
+    <ClInclude Include="HashSet.h" />
+    <ClInclude Include="HashTableChaining.h" />
     <ClInclude Include="Hashtable_presentacion.h" />
+    <ClInclude Include="LinkedList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

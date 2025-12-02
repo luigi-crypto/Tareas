@@ -1,5 +1,6 @@
 #include "Hashtable_presentacion.h"
 #include "BinarySearchTree.h"
+#include "HashSet.h"
 #include <iostream>
 
 using namespace std;
@@ -19,9 +20,16 @@ int main_demostracion_bst()
 	return 0;
 }
 
+int HashSet()
+{
+	DemostracionHashSet();
+	return 0;
+}
+
 int main()
 {
 	main_presentacion();
 	DemostracionBinarySearchTree();
+	DemostracionHashSet();
 	return 0;
 }
