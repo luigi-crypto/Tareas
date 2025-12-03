@@ -27,7 +27,7 @@ public:
 		}
 	}
 
-	void Add(T value)
+	virtual void Add(T value)
 	{
 		// Inserta el elemento con valor 'value' en el índice que nos dice la función hash.
 		size_t indice = FuncionHash(value);

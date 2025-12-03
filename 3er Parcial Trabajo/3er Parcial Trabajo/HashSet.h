@@ -14,7 +14,7 @@ public:
     HashSet(size_t numeroDeListas) : HashTableChaining<T>(numeroDeListas) {}
 
     // Sobreescribe el método Add para implementar la lógica sin repetidos.
-    virtual void Add(T value)
+     void Add(T value) override
     {
         //Verificar si el elemento ya existe usando la función Encontrar (heredada).
         if (this->Encontrar(value))
